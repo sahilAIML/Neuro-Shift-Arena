@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NeuroShift Arena: Maximum Overdrive</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="damage-overlay" class="hidden"></div>
+    <div id="ui-layer">
+        <div id="crosshair">
+            <div id="hitmarker" class="hidden">✖</div>
+            <div id="ability-trackers">
+                <div class="ability-bar" id="ui-dash-bar"><div class="fill" id="ui-dash-fill"></div></div>
+                <div class="ability-bar" id="ui-rail-bar"><div class="fill" id="ui-rail-fill"></div></div>
+            </div>
+        </div>
+        
+        <div id="hud">
+            <div id="hud-top">
+                <div class="hud-panel left-panel">
+                    <div id="health-container">
+                        <span>SYS_HP</span>
+                        <div id="health-bar"><div id="health-fill"></div></div>
+                    </div>
+                </div>
+                
+                <div class="hud-panel center-panel">
+                    <div id="ai-status">
+                        <span class="label">AI ADAPTATION MATRIX</span>
+                        <span id="ai-mode">CALCULATING...</span>
+                        <div id="ai-meter"><div id="ai-meter-fill"></div></div>
+                    </div>
+                </div>
+                
+                <div class="hud-panel right-panel">
+                    <div id="rule-status">
+                        <span class="label">ACTIVE PROTOCOL</span>
+                        <span id="current-rule">STANDARD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="hud-bottom">
+                <div class="score-container cyberpunk-panel">
+                    <div class="score-label">SCORE // <span id="score-val">000000</span></div>
+                    <div id="combo-tracker" class="hidden">
+                        <span id="combo-val">0</span>x COMBO <span id="multiplier-val" class="highlight">[1.0x]</span>
+                    </div>
+                </div>
+                
+                <div id="boss-health-container" class="hidden cyberpunk-panel">
+                     <span class="label">BOSS_HP</span>
+                     <div id="boss-health-bar"><div id="boss-health-fill"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="rule-popup" class="hidden">
+            <h2>PROTOCOL SHIFT</h2>
+            <p id="rule-desc">Reverse Controls</p>
+        </div>
+        
+        <div id="start-screen">
+            <div class="content cyberpunk-panel">
+                <h1>NEUROSHIFT</h1>
+                <p class="subtitle">MAXIMUM OVERDRIVE</p>
+                <div class="controls">
+                    <p>[W A S D] MOVEMENT &bull; [SPACE] JUMP</p>
+                    <p>[LEFT CLICK] RAPID FIRE &bull; [RIGHT CLICK] PLASMA RAILGUN &bull; [SHIFT] DASH</p>
+                </div>
+
+                <div id="scoreboard-start" class="scoreboard hidden">
+                    <h3>HIGH SCORES</h3>
+                    <ul class="score-list" id="score-list-start"></ul>
+                </div>
+
+                <button id="start-btn" class="cyberpunk-btn">INITIALIZE</button>
+            </div>
+        </div>
+        
+        <div id="game-over" class="hidden">
+            <div class="content cyberpunk-panel">
+                <h1 id="end-title">FATAL ERROR</h1>
+                <h2 id="end-subtitle"></h2>
+                
+                <h3 id="final-score-display">FINAL SCORE: 000000</h3>
+
+                <div id="scoreboard-end" class="scoreboard hidden">
+                    <h3>HIGH SCORES</h3>
+                    <ul class="score-list" id="score-list-end"></ul>
+                </div>
+
+                <button id="restart-btn" class="cyberpunk-btn">REBOOT SYSTEM</button>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
